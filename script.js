@@ -72,9 +72,11 @@ class Bike extends Transport {
 for (let item of data) {
     if(item.type === 'car') {
         const newCar = new Car(item.type, item.price, item.brand, item.doors);
+        console.log(newCar.doors);
     }
     else if (item.type === 'bike') {
     const newBike = new Bike(item.type, item.price, item.brand, item.maxSpeed);
+    console.log(newBike.maxSpeed);
     }
 } 
 console.log(newBike.maxSpeed);
