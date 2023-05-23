@@ -33,6 +33,7 @@ const data = [
     }
 ];
 
+//создаю класс Транспорт
 class Transport {
     constructor (type, price, brand) {
         this.type = type;
@@ -46,23 +47,34 @@ class Transport {
         return this.price
     }
 }
+//создаю класс Car наследуемый от Transport
 class Car extends Transport {
     constructor(type, price, brand, doors) {
         super(type, price, brand);
         this.doors = doors;
     }
-    getDoorsCount () {
+    getDoorsCount() {
         return this.doors
     }
 }
+//создаю класс Bike наследуемый от Transport
 class Bike extends Transport {
     constructor(type, price, brand, maxSpeed) {
         super(type, price, brand);
         this.maxSpeed = maxSpeed;
     }
-    getmaxSpeed () {
+    getmaxSpeed() {
         return this.maxSpeed
     }
 }
 
-console.log(car.getPrice());
+//создаю цикл для получения данных из массива
+for (let item of data) {
+    if(item.type === 'car') {
+        const newCar = new Car(item.type, item.price, item.brand, item.doors);
+    }
+    else if (item.type === 'bike') {
+    const newBike = new Bike(item.type, item.price, item.brand, item.maxSpeed);
+    }
+} 
+console.log(newBike.maxSpeed);
