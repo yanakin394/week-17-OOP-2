@@ -63,20 +63,55 @@ class Bike extends Transport {
         super(type, price, brand);
         this.maxSpeed = maxSpeed;
     }
-    getmaxSpeed() {
+    getMaxSpeed() {
         return this.maxSpeed
     }
 }
+//получаю доступ к элементу веб-стр.
+const container = document.querySelector('.transport');
 
 //создаю цикл для получения данных из массива
 for (let item of data) {
     if(item.type === 'car') {
-        const newCar = new Car(item.type, item.price, item.brand, item.doors);
-        console.log(newCar.doors);
+        const car = new Car(item.type, item.price, item.brand, item.doors);
+
+        let itemCar = document.createElement("div");
+        itemCar.innerText = car.getInfo();
+
+        let itemDoors = document.createElement("div");
+        itemDoors.innerText = car.getDoorsCount();
+
+        let itemPrice = document.createElement("div");
+        itemPrice.innerHTML = `Цена: ${car.getPrice()} руб.`;
+
+        let itemImg = document.createElement("img");
+        itemImg.classList.add("car_img");
+        itemImg.src = item.image; 
+
+        container.appendChild(itemImg);
+        container.appendChild(itemCar);
+        container.appendChild(itemDoors);
+        container.appendChild(itemPrice);
     }
     else if (item.type === 'bike') {
-    const newBike = new Bike(item.type, item.price, item.brand, item.maxSpeed);
-    console.log(newBike.maxSpeed);
+    const bike = new Bike(item.type, item.price, item.brand, item.maxSpeed);
+    
+    let itemBike = document.createElement("div");
+    itemBike.innerText = bike.getInfo();
+
+    let itemBikePrice = document.createElement("div");
+    itemBikePrice.innerText = `Цена: ${bike.getPrice()} руб.`;
+
+    let itemSpeed = document.createElement("div");
+    itemSpeed.innerText = bike.getMaxSpeed();
+    
+    let bikeImg = document.createElement("img");
+    bikeImg.classList.add("bike_img");
+    bikeImg.src = item.image;
+
+    container.appendChild(itemImg);
+    container.appendChild(itemBike);
+    container.appendChild(itemSpeed);
+    container.appendChild(itemBikePrice);
     }
 } 
-console.log(newBike.maxSpeed);
