@@ -109,7 +109,7 @@ for (let item of data) {
     bikeImg.classList.add("bike_img");
     bikeImg.src = item.image;
 
-    container.appendChild(itemImg);
+    container.appendChild(bikeImg);
     container.appendChild(itemBike);
     container.appendChild(itemSpeed);
     container.appendChild(itemBikePrice);
